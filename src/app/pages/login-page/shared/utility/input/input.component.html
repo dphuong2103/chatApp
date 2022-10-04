@@ -1,0 +1,43 @@
+<div
+  class="input-container"
+  [formGroup]="parentFormGroup"
+  [ngClass]="{ 'input-container': true }"
+>
+  <label
+    for="input"
+    [ngClass]="{
+      focusAnimation: isFocus,
+      'signup-block__content__label': true
+    }"
+    >{{ label }}</label
+  >
+
+  <div
+    class="input-group"
+    [ngClass]="{
+      'input-group': true,
+      'isError-required':
+        (formControl && formControl.touched &&
+        formControl.errors &&
+        formControl.errors['required'])
+    }"
+  >
+    <mat-icon
+      [ngClass]="{
+        focusAnimation: isFocus,
+        'signup-block__content__label': true
+      }"
+      >{{ matIconName }}</mat-icon
+    >
+    <input
+      [formControlName]="myFormControlName"
+      [type]="type"
+      [class]="inputClassList"
+      [id]="inputId"
+      [placeholder]="placeHolder"
+      inputFocus
+      (isFocusElement)="setFocus($event)"
+      [required]="isRequired"
+    />
+  </div>
+</div>

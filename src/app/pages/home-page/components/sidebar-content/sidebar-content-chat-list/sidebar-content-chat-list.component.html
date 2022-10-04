@@ -1,0 +1,70 @@
+<div class="chatList-container">
+  <div class="title">Chats</div>
+
+  <!-- Search Box -->
+  <div class="search-section">
+    <div class="search-container">
+      <mat-icon>search</mat-icon>
+      <input type="text" placeholder="Search Chat" />
+    </div>
+  </div>
+
+  <div class="title-2">Recent</div>
+
+  <!-- chat list -->
+  <div class="chatList-section">
+    <!-- ================================================ -->
+    <ng-container *ngIf="chatRoomsNUserInfo$ | async as chatRoomsNUserInfo">
+      <ul class="chatList">
+        <!-- chat 1 -->
+
+        <li
+          *ngFor="let chatRoomNUserInfo of chatRoomsNUserInfo"
+          class="message-container"
+        >
+          <ng-container *ngIf="chatRoomNUserInfo._chatRoom?._type == 'ONE'">
+            <a
+              class="message-wrapper"
+              (click)="this.selectChatRoom(chatRoomNUserInfo.chatRoom._id!, chatRoomNUserInfo)"
+            >
+              <!-- avatar -->
+              <img
+                class="message-avatar"
+                src="{{ chatRoomNUserInfo.members[0]._photoURL }}"
+              />
+
+              <!-- chat content -->
+              <div class="message-content">
+                <!-- name of type_ONE chatroom -->
+                <ng-container *ngIf="chatRoomNUserInfo.members[0]">
+                  <!-- name -->
+                  <div class="name">
+                    <span>
+                      {{ chatRoomNUserInfo.members[0]._displayName }}
+                    </span>
+                  </div>
+                </ng-container>
+
+                <!-- last message -->
+                <div class="last-message">
+                  <span>
+                    {{ chatRoomNUserInfo.chatRoom._lastMessage!._message }}
+                  </span>
+                </div>
+              </div>
+              <!-- chat-more info (time/number of unseen messages) -->
+              <div class="message-more-info">
+                <div class="numberof-unseen-message">7</div>
+                <div class="last-message-time">
+                  <span>5 mins</span>
+                </div>
+              </div>
+            </a>
+          </ng-container>
+        </li>
+      </ul>
+    </ng-container>
+
+    <!-- ================================================ -->
+  </div>
+</div>

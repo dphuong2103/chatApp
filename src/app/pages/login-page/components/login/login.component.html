@@ -1,0 +1,102 @@
+<div class="login-block-container">
+  <!-- title -->
+  <div>
+    <p class="login-block__title">Login</p>
+  </div>
+
+  <!-- login form with email & password -->
+  <form
+    class="login-block__email-form"
+    [formGroup]="loginForm"
+    (ngSubmit)="signInWithEmail()"
+  >
+    <div class="login-block__email">
+      <!-- Email  -->
+      <app-input
+        [parentFormGroup]="loginForm"
+        label="Email"
+        matIconName="email"
+        placeHolder="Type your email"
+        type="email"
+        inputID="email"
+        inputClassList="email"
+        myFormControlName="email"
+        isRequired="true"
+      ></app-input>
+      <!-- Password -->
+
+      <app-input
+        [parentFormGroup]="loginForm"
+        label="Password"
+        matIconName="lock"
+        placeHolder="Type your password"
+        type="password"
+        inputID="password"
+        inputClassList="password"
+        myFormControlName="password"
+        isRequired="true"
+      ></app-input>
+
+      <!-- Forgot password -->
+      <div class="forgot-password-container">
+        <a class="forgot-password" (click)="toggleForgotPasswordModal()"
+          >Forgot password?</a
+        >
+      </div>
+
+      <!-- button login -->
+      <button class="btn-login" type="submit">LOGIN</button>
+
+      <div class="forgotPassword-modal">
+        <!-- modal title -->
+
+        <div class="title">
+          <div>Forgot password?</div>
+
+          <a (click)="toggleForgotPasswordModal()">
+            <mat-icon class="close">close</mat-icon>
+          </a>
+        </div>
+        <!-- modal body -->
+        <form [formGroup]="forgotPasswordForm" (ngSubmit)="forgotPassword()">
+          <div class="body">
+            <mat-icon>email</mat-icon>
+            <input
+              type="email"
+              placeholder="Email address"
+              formControlName="email"
+            />
+            <button type="submit">
+              <mat-icon class="reset-password-request">send</mat-icon>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </form>
+
+  <!-- login with others social account -->
+  <div class="login-block__other">
+    <!-- title -->
+    <p>Or sign up using</p>
+
+    <!-- others login container -->
+    <div class="other-container">
+      <!-- facebook -->
+      <a href="#"> <img src="assets/imgs/facebook.png" alt="facebook" /></a>
+
+      <!-- google -->
+      <a (click)="googleSignIn()">
+        <img src="assets/imgs/google.png" alt="google"
+      /></a>
+
+      <!-- twitter -->
+      <a href="#"> <img src="assets/imgs/twitter.png" alt="twitter" /></a>
+    </div>
+  </div>
+
+  <!-- sign up -->
+  <div class="sign-up">
+    Don't have an account? <a routerLink="/loginPage/signup">Sign up</a>
+  </div>
+</div>

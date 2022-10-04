@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "chat-app-2103": {
+      "hosting": {
+        "ChatApp": [
+          "chat-app-2103"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "chat-app-2103"
+  }
+}

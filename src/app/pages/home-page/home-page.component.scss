@@ -1,0 +1,42 @@
+$medium-min-width: 768px;
+
+.home-page-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+
+  & :last-child {
+    flex: 1;
+  }
+  & :nth-child(2) {
+    flex: 1;
+    min-width: 0;
+    min-width: 0;
+  }
+}
+
+.isHidden {
+  display: none;
+}
+
+.sidebar-content {
+  background-color: var(--sidebarContent_lightblue);
+}
+
+@media (min-width: $medium-min-width) {
+  .isHidden {
+    display: flex;
+  }
+
+  .home-page-container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+
+    & :nth-child(2) {
+      display: flex;
+      flex: 0;
+      min-width: 20rem;
+    }
+  }
+}

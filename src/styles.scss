@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --lightblue: #e5f0ff;
+  --lightgray: #f5f8fd;
+  --lightblue2: lightblue;
+  --sidebarContent_lightblue: #f5f8fd;
+  --medium-min-width: 768px;
+  --sidebar-content-min-width: 20rem;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.sidebar-content-container > *:not(router-outlet) {
+  width: 100%;
+}

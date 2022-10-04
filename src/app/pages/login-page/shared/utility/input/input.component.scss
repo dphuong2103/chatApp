@@ -1,0 +1,29 @@
+.input-container .input-group {
+  border-bottom: 1px solid #ced4da;
+  padding: 0.5em 0px;
+  margin-bottom: 1em;
+  display: flex;
+  align-items: center;
+}
+
+label,
+mat-icon {
+  transition: color 0.3s;
+}
+
+.input-container input {
+  padding: 0.375rem 0.75rem;
+  border: none;
+  outline: none;
+  flex: 1;
+  font-weight: 200;
+}
+
+.focusAnimation {
+  color: violet;
+  transition: color 0.4s;
+}
+
+.isError-required{
+    box-shadow:  -4px 0px 2px -2px red;
+}

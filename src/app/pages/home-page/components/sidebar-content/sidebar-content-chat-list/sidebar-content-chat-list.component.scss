@@ -1,0 +1,140 @@
+$medium-min-width: 768px;
+.chatList-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.chatList-container .title {
+  color: #1273eb;
+  font-size: 2em;
+  padding: 0.5em 1em 0px;
+}
+.search-section {
+  padding: 1em;
+
+  & .search-container {
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    background: white;
+    padding: 0.5em;
+    & > * {
+      background: white;
+    }
+    & input {
+      border: none;
+      outline: none;
+      font-weight: lighter;
+    }
+    & mat-icon {
+      color: #1185e0;
+    }
+  }
+}
+
+.chatList-container .title-2 {
+  font-size: 1.5rem;
+}
+
+.chatList-section {
+  & .chatList {
+    padding: 0;
+    list-style-type: none;
+  }
+  & .message-container {
+    padding: 0.5em 1em;
+
+    display: flex;
+    border-bottom: 1px solid rgb(204, 222, 228);
+
+    &.active {
+      background-color: #c5d4f0;
+    }
+    & :hover {
+      cursor: pointer;
+    }
+    &:not(.active):hover {
+      background-color: #f0f4fb;
+    }
+  }
+  & .message-wrapper {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  & .message-avatar {
+    background-color: blue;
+    min-height: 2.5rem;
+    min-width: 2.5rem;
+    border-radius: 50%;
+    max-width: 2.5rem;
+    max-height: 2.5rem;
+  }
+
+  & .message-content {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    min-width: 0;
+    max-width: 90%;
+
+    & .name {
+      font-weight: lighter;
+      font-size: 0.9rem;
+      overflow: hidden;
+      white-space: nowrap;
+      word-wrap: break-word;
+      font-weight: lighter;
+      text-overflow: ellipsis;
+      font-weight: 500;
+      overflow: hidden;
+    }
+
+    & .last-message {
+      font-weight: lighter;
+      font-size: 0.9rem;
+      overflow: hidden;
+      white-space: nowrap;
+      word-wrap: break-word;
+      font-weight: lighter;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+
+  & .message-more-info {
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    white-space: normal;
+    padding: 10px;
+    & .numberof-unseen-message {
+      background-color: #1273eb;
+      width: 1.5em;
+      height: 1.5em;
+      text-align: center;
+      border-radius: 50%;
+      color: white;
+    }
+
+    & .last-message-time {
+      white-space: nowrap;
+      font-weight: lighter;
+      font-size: 0.7rem;
+    }
+  }
+}
+
+@media (min-width: $medium-min-width) {
+  .chatList-container {
+    width: 20rem;
+  }
+}

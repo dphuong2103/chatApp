@@ -1,0 +1,8 @@
+.toast-header {
+  background-color: red;
+  color: white;
+
+  & .toast-title {
+    text-align: center;
+  }
+}

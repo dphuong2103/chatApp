@@ -1,0 +1,21 @@
+<div class="home-page-container">
+  <homepage-sidebar
+    [ngClass]="{ isHidden: this.getData.isShowChatRoom.asObservable() | async }"
+  ></homepage-sidebar>
+
+  <homepage-sidebar-content
+    [ngClass]="{
+      isHidden: (this.getData.isShowChatRoom.asObservable() | async),
+      'sidebar-content': true
+    }"
+  >
+  </homepage-sidebar-content>
+
+  <homepage-chatroom
+    [ngClass]="{
+      isHidden: !(this.getData.isShowChatRoom.asObservable() | async)
+    }"
+  ></homepage-chatroom>
+</div>
+
+<ng-container *ngIf=""></ng-container>

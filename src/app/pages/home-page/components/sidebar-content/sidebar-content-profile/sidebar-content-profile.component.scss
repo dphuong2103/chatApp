@@ -1,0 +1,42 @@
+.profile-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.title {
+  color: #1273eb;
+  font-size: 2em;
+  padding: 0.5em 1em 0px;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  & .user-img {
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+  }
+
+  & .status {
+    padding: 0.5rem 0 0 0;
+    color: green;
+    font-style: italic;
+    font-weight: 200;
+  }
+  & .user-name {
+    padding: 1rem;
+    font-weight: 500;
+  }
+}
+
+.personal-info {
+  display: flex;
+  justify-content: center;
+  & td {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+}

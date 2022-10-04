@@ -1,0 +1,38 @@
+<div class="contact-list-container">
+  <div class="title">Contacts</div>
+
+  <!-- Search box -->
+  <div class="search-section">
+    <div class="search-container">
+      <mat-icon>search</mat-icon>
+      <input type="text" placeholder="Search" />
+    </div>
+  </div>
+
+  <div class="searched-contacts-section">
+    <ng-container *ngIf="contacts$ | async as contacts">
+      <ul class="searched-contacts">
+        <!-- contact 1 -->
+        <li class="contact-container" *ngFor="let contact of contacts">
+          <!-- avatar -->
+          <a class="contact-wrapper" (click)="selectContact(contact._uid!)">
+            <img class="contact-avatar" src="{{ contact.photoURL }}" alt="" />
+
+            <!-- contact content -->
+            <div class="contact-content">
+              <!-- name -->
+              <div class="contact-name">
+                <ng-container *ngIf="contact.displayName">
+                  {{ contact.displayName }}</ng-container
+                >
+                <ng-container *ngIf="!contact.displayName">
+                  {{ contact.firstName }} {{ contact.lastName }}</ng-container
+                >
+              </div>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </ng-container>
+  </div>
+</div>

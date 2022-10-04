@@ -1,0 +1,92 @@
+<div class="signup-block-container">
+  <!-- title -->
+  <div class="signup-block__title-container signup-block__title">
+    <a routerLink="/loginPage/login">
+      <mat-icon class="btn-back">keyboard_backspace</mat-icon>
+    </a>
+    Sign up
+  </div>
+
+  <!-- login form with email & password -->
+  <form
+    class="signup-block__form"
+    [formGroup]="signUpForm"
+    (ngSubmit)="onSignUpSubmit()"
+  >
+    <div class="signup-block__content">
+      <!-- first name -->
+
+      <app-input
+        [parentFormGroup]="signUpForm"
+        label="First Name"
+        matIconName="person"
+        placeHolder="Type your first name"
+        type="text"
+        inputID="firstName"
+        inputClassList="firstName"
+        myFormControlName="_firstName"
+        isRequired="true"
+      ></app-input>
+
+      <!-- last name -->
+      <app-input
+        [parentFormGroup]="signUpForm"
+        label="Last Name"
+        matIconName="person"
+        placeHolder="Type your last name"
+        type="text"
+        inputID="lastName"
+        inputClassList="lastName"
+        myFormControlName="_lastName"
+      ></app-input>
+
+      <!-- Email  -->
+      <app-input
+        [parentFormGroup]="signUpForm"
+        label="Email"
+        matIconName="email"
+        placeHolder="Type your email"
+        type="email"
+        inputID="email"
+        inputClassList="email"
+        myFormControlName="_email"
+        isRequired="true"
+      ></app-input>
+
+      <!-- Password -->
+      <app-input
+        [parentFormGroup]="signUpForm"
+        label="Password"
+        matIconName="lock"
+        placeHolder="Type your password"
+        type="password"
+        inputID="password"
+        inputClassList="password"
+        myFormControlName="_password"
+        isRequired="true"
+      ></app-input>
+
+      <!-- Confirm password -->
+      <app-input
+        [parentFormGroup]="signUpForm"
+        label="Confirm Password"
+        matIconName="lock"
+        placeHolder="Confirm your password"
+        type="password"
+        inputID="confirmPassword"
+        inputClassList="confirmPassword"
+        myFormControlName="_confirmPassword"
+        isRequired="true"
+      ></app-input>
+
+      <button class="btn-login" type="submit">Sign up</button>
+    </div>
+  </form>
+</div>
+
+<toast>
+  <div class="toast-container">
+    <div class="toast-header">Header</div>
+    <div class="toast-body">Body 12341324</div>
+  </div>
+</toast>

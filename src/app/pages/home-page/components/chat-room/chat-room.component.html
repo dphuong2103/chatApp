@@ -1,0 +1,98 @@
+<div class="chat-room-container">
+  <ng-container
+    *ngIf="selectedChatRoomNUserInfo$ | async as selectedChatRoomNUserInfo"
+  >
+    <!-- info bar (top bar) -->
+    <ng-container *ngIf="selectedChatRoomNUserInfo._chatRoom?._type == 'ONE'">
+      <div class="info-bar">
+        <!-- profile picture -->
+        <button
+          (click)="this.getData.updateIsShowChatRoom(false)"
+          class="btn-back"
+        >
+          <mat-icon>keyboard_backspace</mat-icon>
+        </button>
+
+        <img
+          class="message-avatar"
+          alt="34"
+          src="{{ selectedChatRoomNUserInfo.members[0]._photoURL }}"
+        />
+
+        <!-- user info -->
+        <div class="info">
+          <div class="name">
+            {{ selectedChatRoomNUserInfo.members[0]._displayName }}
+          </div>
+          <!-- <div class="isTyping">Typing...</div> -->
+        </div>
+
+        <!-- action menu -->
+        <div class="action-menu">
+          <a>
+            <img src="../assets/imgs/video-call.svg" alt="video" />
+          </a>
+          <a>
+            <img src="../assets/imgs/call.svg" alt="video" />
+          </a>
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+
+  <!-- chat message -->
+  <div class="chat-section">
+    <!-- container for scrolling -->
+    <div class="chat-container-scroll">
+      <!-- chat box to store message list -->
+      <ng-container *ngIf="messages$ | async as messages">
+        <ng-container *ngIf="messages[0]">
+          <ul class="chat-box">
+            <!-- message left -->
+            <li
+              *ngFor="let message of messages"
+              [ngClass]="{
+                right: message._senderID == this.auth.currentUserID(),
+                left: message._senderID !== this.auth.currentUserID(),
+                chat: true
+              }"
+            >
+              <div class="chat-avatar">
+                <img src="https://picsum.photos/200" class="chat-avatar-img" />
+              </div>
+
+              <div class="chat-text">
+                <p>
+                  {{ message._message }}
+                </p>
+                <div class="chat-hour">
+                  08:57
+                  <span>✓</span>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+
+  <!-- action bar -->
+  <form [formGroup]="messageForm!" (ngSubmit)="sendMessage()">
+    <div class="action-bar">
+      <input
+        class="message"
+        placeholder="Type your message..."
+        formControlName="_message"
+      />
+
+      <img src="../assets/imgs/emoji.svg" class="select-emoji icon" />
+
+      <img src="../assets/imgs/attach.svg" class="attach icon" />
+
+      <button type="submit" class="submit">
+        <mat-icon>send</mat-icon>
+      </button>
+    </div>
+  </form>
+</div>

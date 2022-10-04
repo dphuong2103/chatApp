@@ -1,0 +1,31 @@
+<div class="sidebar-container">
+  <img class="logo" src="../assets/imgs/logo.svg" alt="" />
+
+  <!-- menu -->
+  <div class="menu">
+    <!-- Home -->
+    <a routerLinkActive="active-link" routerLink="chat">
+      <img src="../assets/imgs/home.svg" alt="" class="menu-item-img" />
+    </a>
+
+    <!-- profile -->
+    <a routerLink="profile" routerLinkActive="active-link">
+      <img src="../assets/imgs/profile.svg" alt="" class="menu-item-img" />
+    </a>
+
+    <!-- contact -->
+    <a routerLinkActive="active-link" routerLink="contact">
+      <img src="../assets/imgs/contact.svg" alt="" class="menu-item-img" />
+    </a>
+
+    <!-- friends -->
+    <a routerLinkActive="active-link">
+      <img src="../assets/imgs/friends.svg" alt="" class="menu-item-img" />
+    </a>
+
+    <!-- settings -->
+    <a (click)="signOut()" routerLinkActive="active-link">
+      <img src="../assets/imgs/settings.svg" alt="" class="menu-item-img" />
+    </a>
+  </div>
+</div>

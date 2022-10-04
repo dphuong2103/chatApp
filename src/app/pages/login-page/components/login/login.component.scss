@@ -1,0 +1,160 @@
+*:not(mat-icon) {
+  font-family: "Open Sans", sans-serif;
+}
+
+.login-block-container {
+  width: 100%;
+
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-block__title {
+  font-weight: 600;
+  font-size: 2em;
+  text-align: center;
+}
+
+.login-block__email label {
+  font-weight: 400;
+}
+
+.login-block__email .input-group {
+  border-bottom: 1px solid #ced4da;
+  padding: 0.5em 0px;
+  margin-bottom: 1em;
+
+  display: flex;
+  align-items: center;
+}
+
+.login-block__email__label {
+  transition: color 0.3s;
+}
+
+.login-block__email input {
+  padding: 0.375rem 0.75rem;
+  border: none;
+  outline: none;
+  flex: 1;
+  font-weight: 200;
+}
+
+mat-icon {
+  transition: color 0.3s;
+}
+
+.login-block__email .forgot-password-container {
+  text-align: right;
+
+  & .forgot-password {
+    color: gray;
+    text-decoration: none;
+  }
+
+  & a {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.forgotPassword-modal {
+  border-radius: 1em;
+  height: min(8em);
+  width: min(24em);
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  background-color: white;
+  box-shadow: 0px 0px 40px -10px gray;
+
+  & button {
+    background-color: white;
+    border: none;
+  }
+  &.show {
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1em;
+  }
+  & .title {
+    font-size: larger;
+    display: flex;
+    justify-content: space-between;
+
+    & div {
+      font-weight: 500;
+    }
+  }
+
+  & .body {
+    display: flex;
+    align-items: center;
+  }
+
+  & .reset-password-request {
+    &:hover {
+      cursor: pointer;
+      color: violet;
+    }
+  }
+
+  & .close {
+    &:hover {
+      cursor: pointer;
+      color: violet;
+    }
+  }
+}
+
+.login-block__email .btn-login {
+  width: 100%;
+  padding: 0.5em;
+  border: none;
+  border-radius: 30px;
+  margin-top: min(2em, 3vh);
+  color: white;
+  font-weight: 500;
+  background-image: linear-gradient(to right, #00b7ea 0%, #a600bc 100%);
+  opacity: 0.7;
+  transition: opacity 0.5s ease-in;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.login-block__other {
+  padding-top: 2em;
+
+  p {
+    text-align: center;
+  }
+}
+
+.login-block__other .other-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3em;
+  & img {
+    width: 2.5em;
+    height: 2.5em;
+    transition: transform 0.5 ease-out;
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.2);
+    }
+  }
+}
+
+.login-block-container .sign-up {
+  margin-top: auto;
+  margin-left: auto;
+}

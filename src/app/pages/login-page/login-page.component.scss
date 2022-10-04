@@ -1,0 +1,31 @@
+*:not(mat-icon) {
+    font-family: "Open Sans", sans-serif;
+  }
+  
+  .background {
+    height: 100vh;
+    width: 100vw;
+    //   background-color: rgb(228, 218, 218);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    background: linear-gradient(
+      to right,
+      rgba(0, 183, 234, 1) 0%,
+      rgba(197, 159, 201, 1) 51%
+    );
+  
+    & .content-block {
+      border-radius: 1em;
+      padding: 2em;
+      background-color: white;
+      height: min(38em);
+      width: min(22em, 90%);
+      position: relative;
+      box-shadow: 10px 10px 20px -10px;
+      overflow: hidden;
+    }
+    
+  }
+  
