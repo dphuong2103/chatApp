@@ -30,69 +30,86 @@
         <!-- action menu -->
         <div class="action-menu">
           <a>
-            <img src="../assets/imgs/video-call.svg" alt="video" />
+            <img src="assets/imgs/video-call.svg" alt="video" />
           </a>
           <a>
-            <img src="../assets/imgs/call.svg" alt="video" />
+            <img src="assets/imgs/call.svg" alt="video" />
           </a>
         </div>
       </div>
     </ng-container>
-  </ng-container>
 
-  <!-- chat message -->
-  <div class="chat-section">
-    <!-- container for scrolling -->
-    <div class="chat-container-scroll">
-      <!-- chat box to store message list -->
-      <ng-container *ngIf="messages$ | async as messages">
-        <ng-container *ngIf="messages[0]">
-          <ul class="chat-box">
-            <!-- message left -->
-            <li
-              *ngFor="let message of messages"
-              [ngClass]="{
-                right: message._senderID == this.auth.currentUserID(),
-                left: message._senderID !== this.auth.currentUserID(),
-                chat: true
-              }"
-            >
-              <div class="chat-avatar">
-                <img src="https://picsum.photos/200" class="chat-avatar-img" />
-              </div>
+    <!-- chat message -->
+    <div class="chat-section">
+      <!-- container for scrolling -->
+      <div class="chat-container-scroll">
+        <!-- chat box to store message list -->
+        <ng-container *ngIf="messages$ | async as messages">
+          <ng-container *ngIf="messages[0]">
+            <ul class="chat-box">
+              <!-- message left -->
+              <li
+                *ngFor="let message of messages"
+                [ngClass]="{
+                  right: message._senderID == this.auth.currentUserID(),
+                  left: message._senderID !== this.auth.currentUserID(),
+                  chat: true
+                }"
+              >
+                <ng-container
+                  *ngIf="
+                    message._senderID == this.auth.currentUserID();
+                    else otherUser
+                  "
+                >
+                  <img
+                    src="{{ this.auth.currentUser()._photoURL }}"
+                    class="chat-avatar-img"
+                  />
+                </ng-container>
 
-              <div class="chat-text">
-                <p>
-                  {{ message._message }}
-                </p>
-                <div class="chat-hour">
-                  08:57
-                  <span>✓</span>
+                <ng-template #otherUser>
+                  <ng-container *ngIf="selectedChatRoomNUserInfo.members[0]">
+                    <img
+                    src="{{ selectedChatRoomNUserInfo.members[0]._photoURL }}"
+                    class="chat-avatar-img"
+                  />
+                  </ng-container>
+                </ng-template>
+
+                <div class="chat-text">
+                  <p>
+                    {{ message._message }}
+                  </p>
+                  <div class="chat-hour">
+                    08:57
+                    <span>✓</span>
+                  </div>
                 </div>
-              </div>
-            </li>
-          </ul>
+              </li>
+            </ul>
+          </ng-container>
         </ng-container>
-      </ng-container>
+      </div>
     </div>
-  </div>
 
-  <!-- action bar -->
-  <form [formGroup]="messageForm!" (ngSubmit)="sendMessage()">
-    <div class="action-bar">
-      <input
-        class="message"
-        placeholder="Type your message..."
-        formControlName="_message"
-      />
+    <!-- action bar -->
+    <form [formGroup]="messageForm!" (ngSubmit)="sendMessage()">
+      <div class="action-bar">
+        <input
+          class="message"
+          placeholder="Type your message..."
+          formControlName="_message"
+        />
 
-      <img src="../assets/imgs/emoji.svg" class="select-emoji icon" />
+        <img src="assets/imgs/emoji.svg" class="select-emoji icon" />
 
-      <img src="../assets/imgs/attach.svg" class="attach icon" />
+        <img src="assets/imgs/attach.svg" class="attach icon" />
 
-      <button type="submit" class="submit">
-        <mat-icon>send</mat-icon>
-      </button>
-    </div>
-  </form>
+        <button type="submit" class="submit">
+          <mat-icon>send</mat-icon>
+        </button>
+      </div>
+    </form>
+  </ng-container>
 </div>

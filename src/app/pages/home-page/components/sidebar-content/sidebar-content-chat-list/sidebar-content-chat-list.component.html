@@ -25,7 +25,12 @@
           <ng-container *ngIf="chatRoomNUserInfo._chatRoom?._type == 'ONE'">
             <a
               class="message-wrapper"
-              (click)="this.selectChatRoom(chatRoomNUserInfo.chatRoom._id!, chatRoomNUserInfo)"
+              (click)="
+                this.selectChatRoom(
+                  chatRoomNUserInfo.chatRoom._id!,
+                  chatRoomNUserInfo
+                )
+              "
             >
               <!-- avatar -->
               <img

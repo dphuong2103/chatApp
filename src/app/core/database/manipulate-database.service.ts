@@ -327,4 +327,18 @@ export class ManipulateDatabaseService {
       .doc(chatRoomID)
       .valueChanges() as Observable<ChatRoom>;
   }
+
+  getUserPhotoURLFromChatRoomNUserInfo(
+    uid: string,
+    chatRoomNUserInfo$: Observable<ChatRoomNUserInfo>
+  ) {
+    return chatRoomNUserInfo$.pipe(
+      map((chatRoomNUserInfo) => {
+        let members = chatRoomNUserInfo.members?.filter(
+          (user) => user.uid == uid
+        );
+        return members[0].photoURL;
+      })
+    );
+  }
 }

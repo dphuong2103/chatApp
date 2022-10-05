@@ -29,7 +29,7 @@ export class HomePageComponent extends Unsubscriber implements OnInit {
   }
 
   getChatRooms() {
-    console.log(123)
+    console.log(123);
     this.anotherSubscription = this.manipulateDB
       .getUserChatRoomInfo(this.auth.currentUserID())
       .subscribe();
